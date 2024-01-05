@@ -1,0 +1,38 @@
+input{
+    border:1px solid black;
+    width:15rem;
+    height:3rem;
+    margin-top:2rem;
+}
+.button-task{
+   border-radius:25%;
+   width:5rem;
+   color:white;
+   background-color: blueviolet;
+   border:none;
+}
+.container{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;   
+    background-color:#D8CFC4;
+}
+.task-container{
+    border:1px solid black;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    background-color:#F2ECE4 ;
+}
+.task-container button{
+    width:5rem;
+    background-color:blueviolet;
+    margin-bottom: 1rem;
+    border-radius:20%;
+    border:1px solid white;
+    color:white;
+}
+.task-container h1{
+    color:black;
+}
