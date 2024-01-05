@@ -4,11 +4,8 @@ export function CreateTodo(){
     const [title,setTitle]=useState("");
     const [description,setDes]=useState("");
 
-    return <div>
-        <input style={{
-            padding: 10,
-            margin: 10
-        }} type="text" placeholder="title" onChange={function(e) {
+    return <div className="container">
+        <input  type="text" placeholder="title" onChange={function(e) {
             const value=e.target.value;
             setTitle(value);
         }}></input><br></br>
@@ -23,7 +20,7 @@ export function CreateTodo(){
         <button style={{
             padding: 10,
             margin: 10
-        }} onClick={()=>{
+        }}  className="button-task"onClick={()=>{
             fetch("http://localhost:3000/todos",{
                 method: "POST",
                 body: JSON.stringify({
