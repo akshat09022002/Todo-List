@@ -1,23 +1,31 @@
-import { useState } from 'react'
+import React,{ useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import { useParams } from 'react-router-dom'; 
 import './App.css'
-import { CreateTodo } from './components/createTodo'
 import { Todos } from './components/Todo'
+import { CreateTodo } from './components/CreateTodo';
 
 function App() {
   const [todos , setTodos]=useState([]);
+  const queryParameters = new URLSearchParams(window.location.search)
+  const username = queryParameters.get("username");
 
-  // wrong way of updating todos
-  // useEffect hook is the correct way
-  fetch('http://localhost:3000/todos').then(async function(res){
+  // wrong way of updating todoss
+  // useEffect hook is the correct way 
+  fetch(`http://localhost:3000/todos/`,{
+    headers : {
+      "username": username,
+      "Content-type": "application/json"
+    }
+  }).then(async function(res){
     const json = await res.json();
     setTodos(json);
   })
 
-  return( 
+  return(  
   <div>
-    <CreateTodo></CreateTodo>
+    <CreateTodo username={username}></CreateTodo>
     <Todos todos={todos}></Todos>
   </div>
   )

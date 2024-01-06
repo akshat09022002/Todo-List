@@ -9,7 +9,11 @@ export function Todos({todos}){
                 <h1>{todo.title}</h1>
                 <h2>{todo.description}</h2>
                 <button onClick={()=>{
-                    const jsonString = JSON.stringify({ "id": todo._id });
+                    const jsonString = JSON.stringify({ 
+                        "id": todo._id,
+                        "username" : "not required",
+                         "task": "update"
+                        });
                     fetch("http://localhost:3000/completed",{
                         method: "PUT",
                         body: jsonString,
@@ -17,10 +21,23 @@ export function Todos({todos}){
                             "Content-type": "application/json",
                             "Content-Length": `${jsonString.length}`
                         }
-                    }).then(() => {
-                        alert("done");
-                    });
+                    })
                 }}>{todo.completed == true ? "Completed" : "Mark as Completed"}</button>
+                <button onClick={()=>{
+                    const jsonString = JSON.stringify({ 
+                        "id": todo._id,
+                        "username" : "not required",
+                        "task": "delete" 
+                        });
+                    fetch("http://localhost:3000/completed",{
+                        method: "PUT",
+                        body: jsonString,
+                        headers: {
+                            "Content-type": "application/json",
+                            "Content-Length": `${jsonString.length}`
+                        }
+                    })
+                }}>Delete</button>
             </div>
         })}
     </div>

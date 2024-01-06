@@ -1,29 +1,24 @@
 import { useState } from 'react'
-export function CreateTodo(){
+export function CreateTodo({username}){
     //react-query
     const [title,setTitle]=useState("");
     const [description,setDes]=useState("");
 
-    return <div className="container">
-        <input  type="text" placeholder="title" onChange={function(e) {
+    return <div className='container'>
+        <input type="text" placeholder="title" onChange={function(e) {
             const value=e.target.value;
             setTitle(value);
         }}></input><br></br>
-        <input style={{
-            padding: 10,
-            margin: 10
-        }} type="text" placeholder="description" onChange={function(e) {
+        <input type="text" placeholder="description" onChange={function(e) {
             const value=e.target.value;
             setDes(value);
         }}></input><br></br>
 
-        <button style={{
-            padding: 10,
-            margin: 10
-        }}  className="button-task"onClick={()=>{
+        <button className="button-task" onClick={()=>{
             fetch("http://localhost:3000/todos",{
                 method: "POST",
                 body: JSON.stringify({
+                    username: username,
                     title: title,
                     description: description
                 }),
@@ -32,8 +27,22 @@ export function CreateTodo(){
                 }
             }).then(async function(res){
                 const json=await res.json();
-                alert("Todo added");
             })
         }}>Add a todo</button><br></br>
+        <button className='button-task' onClick={()=>{
+                    const jsonString = JSON.stringify({ 
+                        "id": "not required",
+                        "username": username,
+                        "task": "dall" 
+                        });
+                    console.log(jsonString.length);
+                    fetch("http://localhost:3000/completed",{
+                        method: "PUT",
+                        body: jsonString,
+                        headers: {
+                            "Content-type": "application/json",
+                            "Content-Length": `${jsonString.length}`                        }
+                    })
+                }}>Clear All</button>
     </div>
 }
