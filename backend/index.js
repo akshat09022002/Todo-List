@@ -7,7 +7,7 @@ const {signup} = require("./types")
 const cors= require("cors");
 const app=express();
 
-app.use(express.json());
+app.use(express.json()); 
 
 app.use(cors());
 
@@ -18,7 +18,7 @@ app.post('/signup',async function(req,res){
 
     if(!parseSignup.success){
         res.json({
-            "msg":"invalid credentials"
+            "msg":"invalid credentials" 
         })
         return;
     }

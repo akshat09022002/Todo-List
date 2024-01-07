@@ -8,11 +8,11 @@ export function Signin(){
 
     return(
         <div>
-            <input onChange={(e)=>{
+            <input type="email" onChange={(e)=>{
                 const value=e.target.value;
                 setuser(value);
             }} placeholder="username"></input><br></br><br></br>
-            <input onChange={(e)=>{
+            <input type="password" onChange={(e)=>{
                 const value=e.target.value;
                 setpass(value);
             }} placeholder="password"></input><br></br><br></br>

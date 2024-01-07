@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React,{ useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import { useParams } from 'react-router-dom'; 
@@ -13,15 +13,18 @@ function App() {
 
   // wrong way of updating todoss
   // useEffect hook is the correct way 
-  fetch(`http://localhost:3000/todos/`,{
-    headers : {
-      "username": username,
-      "Content-type": "application/json"
-    }
-  }).then(async function(res){
-    const json = await res.json();
-    setTodos(json);
-  })
+
+  useEffect(()=>{
+    fetch(`http://localhost:3000/todos/`,{
+      headers : {
+        "username": username,
+        "Content-type": "application/json"
+      }
+    }).then(async function(res){
+      const json = await res.json();
+      setTodos(json);
+    })
+  },[todos]);
 
   return(  
   <div>
