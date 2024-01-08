@@ -28,7 +28,6 @@ export function Signin(){
                     }
                 })
                 const data=await response.json();
-                console.log(data)
                 if(data.msg=="access granted"){
                     window.location.assign(`http://localhost:5174?username=${username}`);
                 }
@@ -36,7 +35,10 @@ export function Signin(){
                     alert('rejected');
                 }
 
-            }}>Login</button>
+            }}>Login</button><span>    </span>
+            <button onClick={()=>{
+                window.location.assign("http://localhost:5175/");
+            }}>Sign up</button>
         </div>
     )
 
