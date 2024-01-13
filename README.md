@@ -43,6 +43,6 @@ Embark on an organizational journey with my full-stack creation that brings to-d
 
 4) A URL to localhost:5173 will open on your browser, you may now sign up and start using the todo-list.
 
-Feel free to contribute improvements to the project. If you find it helpful, let me know!
-Thank You.
-Let's make your tasks not just manageable but a joy to conquer! 💪📋✨
+##### Feel free to contribute improvements to the project. If you find it helpful, let me know! 
+##### Thank You.
+##### Let's make your tasks not just manageable but a joy to conquer! 💪📋✨
