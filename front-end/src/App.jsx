@@ -27,7 +27,8 @@ function App() {
   },[todos]);
 
   return(  
-  <div>
+  <div className='todo_app'>
+    <span  className='mainh1'><h1 style={{"font-size": "40px" , "color":"#39A7FF"}}>What's The Plan For Today?</h1></span>
     <CreateTodo username={username}></CreateTodo>
     <Todos todos={todos}></Todos>
   </div>

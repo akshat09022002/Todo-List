@@ -8,15 +8,15 @@ export function Signin(){
 
     return(
         <div>
-            <input type="email" onChange={(e)=>{
+            <input className="input" type="email" onChange={(e)=>{
                 const value=e.target.value;
                 setuser(value);
             }} placeholder="username"></input><br></br><br></br>
-            <input type="password" onChange={(e)=>{
+            <input className='input' type="password" onChange={(e)=>{
                 const value=e.target.value;
                 setpass(value);
             }} placeholder="password"></input><br></br><br></br>
-            <button onClick={async function(){
+            <button  onClick={async function(){
                 const response = await fetch('http://localhost:3000/signin',{
                     method : "POST",
                     body: JSON.stringify({
@@ -35,7 +35,7 @@ export function Signin(){
                     alert('rejected');
                 }
 
-            }}>Login</button><span>    </span>
+            }}><span>Login</span></button><span>    </span>
             <button onClick={()=>{
                 window.location.assign("http://localhost:5175/");
             }}>Sign up</button>

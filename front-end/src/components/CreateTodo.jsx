@@ -4,17 +4,17 @@ export function CreateTodo({username}){
     const [title,setTitle]=useState("");
     const [description,setDes]=useState("");
 
-    return <div className='container'>
-        <input type="text" placeholder="title" onChange={function(e) {
+    return <div className='todo-form'>
+        <input className='todo-input' type="text" placeholder="title" onChange={function(e) {
             const value=e.target.value;
             setTitle(value);
         }}></input><br></br>
-        <input type="text" placeholder="description" onChange={function(e) {
+        <input className='todo-input' type="text" placeholder="description" onChange={function(e) {
             const value=e.target.value;
             setDes(value);
-        }}></input><br></br>
-
-        <button className="button-task" onClick={()=>{
+        }}></input>
+        
+        <button className="todo-button" onClick={()=>{
             fetch("http://localhost:3000/todos",{
                 method: "POST",
                 body: JSON.stringify({
@@ -28,8 +28,9 @@ export function CreateTodo({username}){
             }).then(async function(res){
                 const json=await res.json();
             })
-        }}>Add a todo</button><br></br>
-        <button className='button-task' onClick={()=>{
+        }}>Add a todo</button>
+        
+        <button className='todo-button' onClick={()=>{
                     const jsonString = JSON.stringify({ 
                         "id": "not required",
                         "username": username,
@@ -44,5 +45,7 @@ export function CreateTodo({username}){
                             "Content-Length": `${jsonString.length}`                        }
                     })
                 }}>Clear All</button>
+        
+       
     </div>
 }

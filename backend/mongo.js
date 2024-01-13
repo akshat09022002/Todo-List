@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-mongoose.connect("enteryoururl/todos")
+mongoose.connect("your_url/todos")
 
 const todoSchema= mongoose.Schema({
     title: String,

@@ -5,6 +5,20 @@
   text-align: center;
 }
 
+.input{
+  padding: 14px 32px 14px 16px;
+  border-radius: 4px 4px 4px 4px;
+  border: 2px solid #39A7FF;
+  outline: none;
+  width: 320px;
+  background: transparent;
+  color: #39A7FF;
+}
+
+.input::placeholder {
+  color: #39A7FF;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

@@ -1,14 +1,14 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import { RiCloseCircleLine } from 'react-icons/ri';
+import {TiEdit} from 'react-icons/ti';
 
 
 export function Todos({todos}){
 
     return <div>
         {todos.map(function(todo){
-            return <div className="task-container">
-                <h1>{todo.title}</h1>
-                <h2>{todo.description}</h2>
-                <button onClick={()=>{
+            return <div className={todo.completed ? 'todo-row complete' : 'todo-row'}>
+                <div className='todo-container' onClick={()=>{
                     const jsonString = JSON.stringify({ 
                         "id": todo._id,
                         "username" : "not required",
@@ -22,8 +22,12 @@ export function Todos({todos}){
                             "Content-Length": `${jsonString.length}`
                         }
                     })
-                }}>{todo.completed == true ? "Completed" : "Mark as Completed"}</button>
-                <button onClick={()=>{
+                }}>
+                <h1>{todo.title}</h1>
+                <h2>{todo.description}</h2>
+                </div>
+                <div className='icons'>
+                    <RiCloseCircleLine className='icon_element' onClick={()=>{
                     const jsonString = JSON.stringify({ 
                         "id": todo._id,
                         "username" : "not required",
@@ -37,21 +41,10 @@ export function Todos({todos}){
                             "Content-Length": `${jsonString.length}`
                         }
                     })
-                }}>Delete</button>
+                }}></RiCloseCircleLine>
+                    <TiEdit className='icon_element'></TiEdit>   
+                </div>
             </div>
         })}
     </div>
 }
-
-// fetch("http://localhost:3000/completed",{
-//                     method: "PUT",
-//                     body: JSON.stringify({
-//                         "id": todo._id
-//                     }),
-//                     header: {
-//                         "Content-type":"application/json" 
-//                     }
-//                 }).then(async function(res){
-//                 const json=await res.json();
-//                 alert("Marked as done");
-//             })

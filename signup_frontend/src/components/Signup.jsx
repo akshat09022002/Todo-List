@@ -5,14 +5,14 @@ export function Signup(){
     const [code,Setcode]=useState('');
 
     return <div>
-        <input type="email" placeholder="username" onChange={(e)=>{
+        <input className='input' type="email" placeholder="username" onChange={(e)=>{
             const value=e.target.value;
             Setuser(value);
-        }}></input>
-        <input type="password" placeholder="password" onChange={(e)=>{
+        }}></input><br></br><br></br>
+        <input className='input' type="password" placeholder="password" onChange={(e)=>{
             const value=e.target.value;
             Setcode(value);
-        }}></input>
+        }}></input><br></br><br></br>
         <button onClick={async ()=>{
            const response=await fetch("http://localhost:3000/signup",{
             method:"POST",
