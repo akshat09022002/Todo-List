@@ -24,14 +24,14 @@ Embark on an organizational journey with my full-stack creation that brings to-d
 1) Fork this repository to your PC.
 2) open the folder --> backend --> mongo.js --> now replace mongo.connect URL to your Mongo database URL.
 3) Open the terminal and run the command given below-:
---> for Windows:
+  ##### --> for Windows:
   #####  start cmd /k "cd Folder_Location\backend && npx nodemon index.js"
   #####  start cmd /k "cd Folder_Location\signin_frontend && npm install && npm run dev"
   #####  start cmd /k "cd Folder_Location\front-end && npm install && npm run dev"
   #####  start cmd /k "cd Folder_Location\signup_frontend && npm install && npm run dev"
   #####  timeout /t 5 && start http://localhost:5173
 
---> For Mac:
+   ##### --> For Mac:
    ##### cd Folder_Location/backend && npx nodemon index.js &
    ##### cd Folder_Location/signin_frontend && npm install && npm run dev &
    ##### cd Folder_Location/front-end && npm install && npm run dev &
