@@ -18,6 +18,7 @@ app.post('/signup',async function(req,res){
     const parseSignup= signup.safeParse(signUpCreden);
 
     if(!parseSignup.success){
+        res.status(411);
         res.json({
             "msg":"invalid credentials" 
         })
@@ -31,14 +32,17 @@ app.post('/signup',async function(req,res){
             username: username,
             password: signUpCreden.password
         })
-
-        res.json({
-            "msg": "signup successful"
+        res.status(200);
+        return res.json({
+            "msg": "signup successful",
+            "response": response
         })
-        return;
+        
     }
-    res.json({
-        "msg":"user already exists"
+    res.status(409);
+    return res.json({
+        "msg":"user already exists",
+        "response": response
     }) 
 })
 
